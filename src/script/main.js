@@ -1,4 +1,4 @@
-import { getStockQuote } from "./api.js";
+import { getExchangeRate, getStockQuote } from "./api.js";
 import { CONFIG } from "./config.js";
 
 async function loadStocks() {
@@ -9,4 +9,13 @@ async function loadStocks() {
   }
 }
 
+async function loadExchangeRate() {
+  const data = await getExchangeRate();
+
+  for (const currency in data.rates) {
+    console.log(currency, data.rates[currency]);
+  }
+}
+
 loadStocks();
+loadExchangeRate();

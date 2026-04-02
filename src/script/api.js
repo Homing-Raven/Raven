@@ -9,3 +9,10 @@ export async function getStockQuote(symbol) {
   const response = await fetch(url);
   return await response.json();
 }
+
+export async function getExchangeRate() {
+  const url = `${CONFIG.EXCHANGE.BASE_URL}/v1/latest?from=USD`;
+
+  const response = await fetch(url);
+  return await response.json();
+}
